@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{include "app.name" .}}-deployment
+spec:
+  replicas: {{.Values.front.replicas}}
+  selector: 
+    matchLabels:
+      app: {{ include "app.name" .}}
+  strategy: {{toYaml (.Values.front.strategy) | nindent 4 }}
+  template:
+    metadata:
+      labels:
+        app: {{include "app.name" .}}
+    spec:
+      containers:
+        - image: "{{.Values.global.imageRegistry}}/{{.Values.front.image}}:{{.Values.CI_COMMIT_SHA}}"
+          imagePullPolicy: Always
+          name: {{include "app.name" .}}
+          ports:
+            - containerPort: 3000
+          resources: {{ toYaml (.Values.front.resources) | nindent 12}}
+      nodeSelector: {{ toYaml (.Values.front.nodeSelector) | nindent 8}}

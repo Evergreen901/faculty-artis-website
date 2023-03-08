@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "logo": "/assets/images/partner1.svg",
+      "title": "x8c",
+      "link": "https://www.x8c.io/"
+    },
+    {
+      "logo": "/assets/images/partner2.svg",
+      "title": "Faculty Capital",
+      "link": "https://www.facultycapital.com/"
+    },
+    {
+      "logo": "/assets/images/partner3.svg",
+      "title": "Faculty Lab",
+      "link": "https://www.facultylab.io/"
+    },
+    {
+      "logo": "/assets/images/partner5.svg",
+      "title": "Facultyent Ertainment",
+      "link": "https://facultyentertainment.com/"
+    },
+    {
+      "logo": "/assets/images/partner4.svg",
+      "title": "Otaris",
+      "link": "https://otaris.io/"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+@import 'fonts';
+@import 'varibless';
+@import 'mixin';
+
+.head-text {
+  padding-top: 269px;
+  margin-bottom: 40px;
+  position: relative;
+
+  @include mobile375 {
+    padding-top: 137px;
+    margin-bottom: 43px;
+  }
+
+  &__content {
+    font-weight: 300;
+    max-width: 688px;
+    margin-bottom: 20px;
+
+    p {
+      margin: 0;
+    }
+
+    * {
+      font-size: 32px;
+      line-height: 41px;
+      text-transform: uppercase;
+
+      @include mobile375 {
+        font-size: 24px;
+        line-height: 31px;
+      }
+    }
+  }
+
+  #cursor {
+    position: absolute;
+    width: 64px;
+    right: 0;
+    bottom: 71px;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  #circle {
+    position: absolute;
+    top: 141px;
+    left: 395px;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 100%;
+
+    background: $accent;
+
+    @media screen and (max-width: 992px) {
+      display: none;
+    }
+  }
+}

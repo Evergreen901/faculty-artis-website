@@ -1,0 +1,36 @@
+@import 'varibless';
+@import 'fonts';
+@import 'mixin';
+
+
+.btn {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 16px 20px;
+	gap: 10px;
+
+	border-radius: 32px;
+
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 120%;
+
+	text-decoration: none;
+	width: fit-content;
+
+
+	&-red {
+		background: $accent;
+		color: $light;
+
+		@include mobile375 {
+			width: 100%;
+			justify-content: center;
+		}
+	}
+}
+
+
+

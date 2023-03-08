@@ -1,0 +1,22 @@
+global:
+  imageRegistry: registry.howtowork.ru
+  projectDomain: artis.bm-it.dev
+  ingressClassName: nginx
+
+front:
+  image: artis-front
+  root: /
+  resources:
+    requests:
+      memory: '90Mi'
+      cpu: '50m'
+    limits:
+      memory: '90Mi'
+      cpu: '50m'
+  nodeSelector: {}
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+
+CI_COMMIT_SHA:
+

@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "title": "Market Making",
+      "desc": "We are a client-focused market maker that prioritizes meeting the needs of our clients over our own interests. We are equipped to fulfill any request that our clients may have"
+    },
+    {
+      "title": "Treasury management",
+      "desc": "We handle the management of project treasury and finances, including buy-backs and liquidation"
+    },
+    {
+      "title": "LMaaS",
+      "desc": "We offer secure and fully customizable liquidity mining programs that provide two-sided liquidity options for your token holders"
+    },
+    {
+      "title": "STaaS",
+      "desc": "Single sided staking solutions"
+    },
+    {
+      "title": "Consultancy",
+      "desc": "Content needed"
+    },
+    {
+      "title": "CEX Support",
+      "desc": "At Artis, we are dedicated to supporting your objectives through all of our activities. Our service is fully scalable, customizable, transparent, non-custodial, and secure, and is tailored to meet your specific needs"
+    }
+  ]
+}

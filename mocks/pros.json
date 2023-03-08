@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "icon": "/assets/images/Icon-1.png",
+      "title": "Expertise",
+      "desc": "Our team is experts in quantitative trading, risk assessment, crypto assets, and software engineering."
+    },
+    {
+      "icon": "/assets/images/Icon-2.png",
+      "title": "Support & Advisory",
+      "desc": "Your success and satisfaction are our top priorities. To ensure your success, we offer 24/7 market surveillance and customer support."
+    },
+    {
+      "icon": "/assets/images/Icon-3.png",
+      "title": "Innovative Technology",
+      "desc": "We utilize the latest scientific, technical, and market developments to achieve excellent trading results on dynamic markets."
+    }
+  ]
+}

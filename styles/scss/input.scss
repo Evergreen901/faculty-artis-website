@@ -1,0 +1,55 @@
+.form-input {
+  position: relative;
+}
+
+.form-input input::placeholder {
+  opacity: 0;
+  transition: all 0.1s ease-in;
+  font-weight: 300;
+}
+
+.form-input input:focus::placeholder {
+  opacity: 1;
+}
+
+.form-input input {
+  z-index: 1;
+  position: relative;
+  background: transparent;
+
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  width: 100%;
+  height: 60px;
+  font-size: 17px;
+  font-weight: 300;
+  outline: none;
+  border-bottom: 1px solid gray;
+  box-sizing: border-box;
+}
+
+.form-input label {
+  z-index: 0;
+  cursor: text;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 17px;
+  color: gray;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  font-weight: 300;
+}
+
+.form-input input:focus + label,
+.form-input input:not(:placeholder-shown) + label {
+  top: 0;
+  font-size: 14px;
+  background: transparent;
+}
+
+.form-input input:focus {
+  border-bottom: 2px solid $light;
+}

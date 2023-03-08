@@ -1,0 +1,55 @@
+stages:
+  - build
+  - deploy
+
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'dev'
+      variables:
+        KUBERNETES: $KUBE_BM_CONFIG
+        VALUES: $BM_VALUES
+
+variables:
+  REGISTRY: $CI_PRIVATE_REGISTRY
+  PODMAN_REG: unqualified-search-registries = ["$REGISTRY"]
+  PODMAN_MODE: short-name-mode="disabled"
+  PATH_CONF: /etc/containers/registries.conf
+  PODMAN_DELETE_SHORTNAME: rm /etc/containers/registries.conf.d/*
+  BUILD: podman build --cache-from $REGISTRY/$APP --cache-to $REGISTRY/$APP -f $CI_PROJECT_DIR/Dockerfile -t $REGISTRY/$APP:$CI_COMMIT_SHA .
+  PUSH: podman push $REGISTRY/$APP:$CI_COMMIT_SHA
+  NS: artis
+
+
+build-front-job:
+  stage: build
+  variables:
+    APP: artis-front
+  image:
+    name: quay.io/podman/stable
+  script:
+    - echo $APP 
+    - echo $REGISTRY
+    - echo $PODMAN_REG > $PATH_CONF
+    - echo $PODMAN_MODE >> $PATH_CONF
+    - $PODMAN_DELETE_SHORTNAME
+    - $BUILD
+    - $PUSH
+  only:
+    - dev
+  tags:
+    - htw
+
+
+
+deploy-front-job:
+  stage: deploy
+  image: alpine/k8s:1.22.6
+  script:
+    - echo "$VALUES" > $CI_PROJECT_DIR/values.yaml
+    - echo "$KUBERNETES" > $CI_PROJECT_DIR/kubeconfig
+    - export KUBECONFIG=$CI_PROJECT_DIR/kubeconfig
+    - helm upgrade -n $NS -f $CI_PROJECT_DIR/values.yaml artis-front ./helm --install --set CI_COMMIT_SHA=$CI_COMMIT_SHA
+  only:
+    - dev 
+  tags:
+    - bm-spb

@@ -1,0 +1,75 @@
+@import 'varibless';
+@import 'mixin';
+
+.our-pros {
+	margin-bottom: 120px;
+
+	@include mobile375 {
+		margin-bottom: 40px;
+	}
+	&__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		display: flex;
+		justify-content: space-between;
+
+		@include mobile375 {
+			flex-direction: column;
+		}
+
+		li {
+			border: $border-2;
+			border-radius: 40px;
+
+			&:not(:last-child) {
+				margin-right: 25px;
+
+				@include mobile375 {
+					margin: 0 0 16px;
+				}
+			}
+		}
+
+		&-item {
+			padding: 24px;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+		}
+
+		&-content {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			margin-top: 60px;
+		}
+
+		&-name {
+			font-style: normal;
+			font-weight: 800;
+			font-size: 20px;
+			line-height: 120%;
+
+			text-transform: uppercase;
+			color: $light;
+
+			margin-bottom: 24px;
+		}
+
+		&-description {
+			font-style: normal;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 110%;
+			color: $second-light;
+			margin: 0;
+			padding: 0;
+
+		}
+
+	}
+
+
+}
